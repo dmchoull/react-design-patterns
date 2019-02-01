@@ -3,7 +3,10 @@ import "./TabBar.css";
 
 class TabBar extends Component {
   static Button = ({ name, active, onClick }) => (
-    <span className={active ? "active" : ""} onClick={onClick}>
+    <span
+      className={["tab-button", active ? "active" : ""].join(" ")}
+      onClick={onClick}
+    >
       {name}
     </span>
   );
@@ -13,16 +16,26 @@ class TabBar extends Component {
   };
 
   setActiveTab = index => {
-    this.setState({ activeTabIndex: index });
+    this.setState({ activeTabIndex: index }, () =>
+      this.props.onTabChange(this.getActiveTabName())
+    );
   };
 
+  getActiveTabName() {
+    return this.props.children[this.state.activeTabIndex].props.name;
+  }
+
   render() {
-    return React.Children.map(this.props.children, (child, childIndex) =>
-      React.cloneElement(child, {
-        active: this.state.activeTabIndex === childIndex,
-        onClick: () => this.setActiveTab(childIndex)
-      })
+    const buttons = React.Children.map(
+      this.props.children,
+      (child, childIndex) =>
+        React.cloneElement(child, {
+          active: this.state.activeTabIndex === childIndex,
+          onClick: () => this.setActiveTab(childIndex)
+        })
     );
+
+    return <div className="tab-bar">{buttons}</div>;
   }
 }
 

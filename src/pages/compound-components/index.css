@@ -1,6 +1,4 @@
 .container {
-  background-color: #282c34;
-  color: white;
   display: flex;
   flex-direction: column;
   flex: 1;

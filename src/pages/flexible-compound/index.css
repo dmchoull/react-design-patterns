@@ -1,0 +1,10 @@
+.product-container {
+  width: 500px;
+  text-align: center;
+  margin: 50px auto;
+}
+
+.product-section {
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,11 +1,9 @@
 .container {
   background-color: #282c34;
-  min-height: calc(100vh - 70px); /* this accounts for the nav bar */
-  font-size: calc(10px + 2vmin);
   color: white;
-
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .tab-content {

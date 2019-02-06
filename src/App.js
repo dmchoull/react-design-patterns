@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import CompoundComponents from "./pages/compound-components";
 import FlexibleCompoundComponents from "./pages/flexible-compound";
 import RenderProp from "./pages/render-prop";
+import HigherOrderComponent from "./pages/higher-order-component";
 
 const listStyle = {
   listStyle: "none",
@@ -31,6 +32,9 @@ const AppRouter = () => (
           <li style={listItemStyle}>
             <Link to="/render-prop/">Render Prop</Link>
           </li>
+          <li style={listItemStyle}>
+            <Link to="/higher-order-component/">Higher Order Component</Link>
+          </li>
         </ul>
       </nav>
 
@@ -42,6 +46,10 @@ const AppRouter = () => (
           component={FlexibleCompoundComponents}
         />
         <Route path="/render-prop/" component={RenderProp} />
+        <Route
+          path="/higher-order-component"
+          component={HigherOrderComponent}
+        />
       </div>
     </div>
   </Router>

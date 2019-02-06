@@ -1,16 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import CompoundComponents from "./pages/compound-components";
 import FlexibleCompoundComponents from "./pages/flexible-compound";
 
 const listStyle = {
-  listStyle: "none"
+  listStyle: "none",
 };
 
 const listItemStyle = {
   display: "inline",
-  paddingRight: 20
+  paddingRight: 20,
 };
 
 const AppRouter = () => (

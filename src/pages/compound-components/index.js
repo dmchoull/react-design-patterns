@@ -4,7 +4,7 @@ import "./index.css";
 
 class CompoundComponent extends Component {
   state = {
-    activeTab: "Home"
+    activeTab: "Home",
   };
 
   onTabChange = activeTab => {

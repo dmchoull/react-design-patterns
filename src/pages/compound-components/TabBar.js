@@ -12,7 +12,7 @@ class TabBar extends Component {
   );
 
   state = {
-    activeTabIndex: 0
+    activeTabIndex: 0,
   };
 
   setActiveTab = index => {
@@ -31,7 +31,7 @@ class TabBar extends Component {
       (child, childIndex) =>
         React.cloneElement(child, {
           active: this.state.activeTabIndex === childIndex,
-          onClick: () => this.setActiveTab(childIndex)
+          onClick: () => this.setActiveTab(childIndex),
         })
     );
 

@@ -12,7 +12,7 @@ const product = {
   description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus delectus dolorum, " +
     "ea, facere illo inventore, labore laboriosam perferendis quas quasi recusandae sit sunt." +
-    " Aspernatur libero repudiandae vero vitae voluptate."
+    " Aspernatur libero repudiandae vero vitae voluptate.",
 };
 
 function FlexibleCompoundComponents() {

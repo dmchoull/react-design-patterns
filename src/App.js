@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import CompoundComponents from "./pages/compound-components";
 import FlexibleCompoundComponents from "./pages/flexible-compound";
+import RenderProp from "./pages/render-prop";
 
 const listStyle = {
   listStyle: "none",
@@ -27,6 +28,9 @@ const AppRouter = () => (
           <li style={listItemStyle}>
             <Link to="/flexible-compound/">Flexible Compound Components</Link>
           </li>
+          <li style={listItemStyle}>
+            <Link to="/render-prop/">Render Prop</Link>
+          </li>
         </ul>
       </nav>
 
@@ -37,6 +41,7 @@ const AppRouter = () => (
           path="/flexible-compound/"
           component={FlexibleCompoundComponents}
         />
+        <Route path="/render-prop/" component={RenderProp} />
       </div>
     </div>
   </Router>

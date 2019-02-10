@@ -15,41 +15,57 @@ const listItemStyle = {
   paddingRight: 20,
 };
 
+const pages = [
+  {
+    path: "/",
+    name: "Home",
+    component: Home,
+  },
+  {
+    path: "/compound",
+    name: "Compound Components",
+    component: CompoundComponents,
+  },
+  {
+    path: "/flexible-compound",
+    name: "Flexible Compound Components",
+    component: FlexibleCompoundComponents,
+  },
+  {
+    path: "/render-prop",
+    name: "Render Prop",
+    component: RenderProp,
+  },
+  {
+    path: "/higher-order-component",
+    name: "Higher Order Component",
+    component: HigherOrderComponent,
+  },
+];
+
+function Nav() {
+  return (
+    <nav>
+      <ul style={listStyle}>
+        {pages.map(page => (
+          <li style={listItemStyle}>
+            <Link to={page.path}>{page.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 const AppRouter = () => (
   <Router>
     <div>
-      <nav>
-        <ul style={listStyle}>
-          <li style={listItemStyle}>
-            <Link to="/">Home</Link>
-          </li>
-          <li style={listItemStyle}>
-            <Link to="/compound/">Compound Components</Link>
-          </li>
-          <li style={listItemStyle}>
-            <Link to="/flexible-compound/">Flexible Compound Components</Link>
-          </li>
-          <li style={listItemStyle}>
-            <Link to="/render-prop/">Render Prop</Link>
-          </li>
-          <li style={listItemStyle}>
-            <Link to="/higher-order-component/">Higher Order Component</Link>
-          </li>
-        </ul>
-      </nav>
+      <Nav />
 
       <div className="page-wrapper">
-        <Route path="/" exact component={Home} />
-        <Route path="/compound/" component={CompoundComponents} />
-        <Route
-          path="/flexible-compound/"
-          component={FlexibleCompoundComponents}
-        />
-        <Route path="/render-prop/" component={RenderProp} />
-        <Route
-          path="/higher-order-component"
-          component={HigherOrderComponent}
-        />
+        {pages.map(page => (
+          <Route path={page.path} exact component={page.component} />
+        ))}
       </div>
     </div>
   </Router>

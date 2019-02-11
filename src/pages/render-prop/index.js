@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GithubData from "./GithubData";
-import List from "./List";
+import List from "../../shared/List";
 import Select from "./Select";
 
 class RenderProp extends Component {

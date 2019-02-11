@@ -1,6 +1,6 @@
 import React from "react";
 import { withGithubData } from "./withGithubData";
-import List from "../render-prop/List";
+import List from "../../shared/List";
 
 const IssuesList = withGithubData(List, "repos/facebook/react/issues");
 

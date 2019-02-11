@@ -1,5 +1,6 @@
 import { Component } from "react";
 import debounce from "debounce";
+import { fetchFromGithub } from "../../shared/fetchFromGithub";
 
 class GithubData extends Component {
   state = {
@@ -11,24 +12,19 @@ class GithubData extends Component {
   }
 
   fetchResource = debounce(() => {
-    fetch(`https://api.github.com/${this.props.resource}`)
-      .then(response => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          return [];
-        }
-      })
-      .then(items => this.setState({ items }));
-  }, 500);
+    fetchFromGithub(this.props.resource).then(items =>
+      this.setState({ items })
+    );
+  }, 200);
 
   componentDidUpdate(prevProps) {
-    if (
-      prevProps.user !== this.props.user ||
-      prevProps.resource !== this.props.resource
-    ) {
+    if (prevProps.resource !== this.props.resource) {
       this.fetchResource();
     }
+  }
+
+  componentWillUnmount() {
+    this.fetchResource.clear();
   }
 
   render() {

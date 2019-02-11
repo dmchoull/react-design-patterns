@@ -5,6 +5,7 @@ import CompoundComponents from "./pages/compound-components";
 import FlexibleCompoundComponents from "./pages/flexible-compound";
 import RenderProp from "./pages/render-prop";
 import HigherOrderComponent from "./pages/higher-order-component";
+import GithubHook from "./pages/github-hook";
 
 const listStyle = {
   listStyle: "none",
@@ -41,6 +42,11 @@ const pages = [
     name: "Higher Order Component",
     component: HigherOrderComponent,
   },
+  {
+    path: "/github-hook",
+    name: "Hooks",
+    component: GithubHook,
+  },
 ];
 
 function Nav() {
@@ -48,7 +54,7 @@ function Nav() {
     <nav>
       <ul style={listStyle}>
         {pages.map(page => (
-          <li style={listItemStyle}>
+          <li key={page.path} style={listItemStyle}>
             <Link to={page.path}>{page.name}</Link>
           </li>
         ))}
@@ -64,7 +70,12 @@ const AppRouter = () => (
 
       <div className="page-wrapper">
         {pages.map(page => (
-          <Route path={page.path} exact component={page.component} />
+          <Route
+            key={page.path}
+            path={page.path}
+            exact
+            component={page.component}
+          />
         ))}
       </div>
     </div>
